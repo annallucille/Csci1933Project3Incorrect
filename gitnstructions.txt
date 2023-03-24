@@ -1,5 +1,12 @@
 
+to push files
 
-git add .
-git commit -m "message"
-git push
+$ git add .
+$ git commit -m "message"
+$ git push
+
+
+to get files
+
+$ git pull
+
