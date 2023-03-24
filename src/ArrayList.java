@@ -1,7 +1,10 @@
+import javax.naming.SizeLimitExceededException;
+
 public class ArrayList<T extends Comparable<T>> implements List<T> {
-    T[] a = (T[]) new Comparable[size];
+    private T[] a;
     private boolean isSorted;
-    public ArrayList(int initsize){
-        int size = 2;
+
+    public ArrayList(){
+        a = (T[]) new Comparable[2];
     }
 }
