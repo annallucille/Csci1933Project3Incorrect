@@ -2,10 +2,12 @@ import java.util.List;
 
 
 public class LinkedList<T extends Comparable<T>> implements List<T> {
+
     private boolean isSorted;
     private Node start;
     private List list;
     private Node currNode = start.getNext();
+
 
     public LinkedList(){
         this.start = new Node("\0");
@@ -23,6 +25,7 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
         currNode.setNext(node);
     }
 
+
     public boolean sort(){
         while(currNode.getNext()!=null){
             Node nextNode = currNode.getNext();
@@ -39,6 +42,7 @@ public class LinkedList<T extends Comparable<T>> implements List<T> {
         isSorted = true;
         return isSorted;
     }
+
 
 
 }
