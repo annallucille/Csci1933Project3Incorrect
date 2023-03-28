@@ -1,75 +1,48 @@
+import java.util.List;
+
+
 public class LinkedList<T extends Comparable<T>> implements List<T> {
-    private boolean isSorted = true;
+
+    private boolean isSorted;
+    private Node start;
+    private List list;
+    private Node currNode = start.getNext();
+
+
     public LinkedList(){
-
-    }
-    @Override
-    public boolean add(T element) {
-        return false;
+        this.start = new Node("\0");
+        isSorted = false;
     }
 
-    @Override
-    public boolean add(int index, T element) {
-        return false;
+    public void add(Node node){
+        if(this.start.getNext()==null){
+            this.start.setNext(node);
+        }
+
+        while(currNode.getNext()!=null){
+            currNode = currNode.getNext();
+        }
+        currNode.setNext(node);
     }
 
-    @Override
-    public void clear() {
 
+    public boolean sort(){
+        while(currNode.getNext()!=null){
+            Node nextNode = currNode.getNext();
+            Node temp;
+            if(currNode.getData().compareTo(nextNode.getData())==1){
+                temp = nextNode;
+                nextNode.setNext(currNode);
+                currNode = temp.getNext();
+            }
+            else{
+                currNode = nextNode;
+            }
+        }
+        isSorted = true;
+        return isSorted;
     }
 
-    @Override
-    public T get(int index) {
-        return null;
-    }
 
-    @Override
-    public int indexOf(T element) {
-        return 0;
-    }
 
-    @Override
-    public boolean isEmpty() {
-        return false;
-    }
-
-    @Override
-    public int size() {
-        return 0;
-    }
-
-    @Override
-    public void sort() {
-
-    }
-
-    @Override
-    public T remove(int index) {
-        return null;
-    }
-
-    @Override
-    public void equalTo(T element) {
-
-    }
-
-    @Override
-    public void reverse() {
-
-    }
-
-    @Override
-    public void merge(List<T> otherList) {
-
-    }
-
-    @Override
-    public boolean rotate(int n) {
-        return false;
-    }
-
-    @Override
-    public boolean isSorted() {
-        return false;
-    }
 }
